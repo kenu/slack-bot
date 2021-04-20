@@ -1,7 +1,6 @@
 # Google Sheets with Jandi bot
 
 ## 환경 설정하기
-* Copy `.env.sample` to `.env`
 * Set up 5 values
   * https://okdevtv.com/mib/google/sheets
   * https://okdevtv.com/mib/jandi
@@ -10,6 +9,10 @@
 ```
 git clone https://github.com/kenu/jandi-google-bot
 cd jandi-google-bot
+npm i
+cp .env.sample .env
+# set up .env values
+npm start
 ```
 
 ## ref
