@@ -6,9 +6,8 @@ router.get('/', function (req, res, next) {
   res.render('index', { title: 'Slack Bot' });
 });
 
-router.post('/', async function (req, res, next) {
-  const stats = actions['cluster']();
-  await actions.sendToSlack(getData(stats));
+router.post('/return', async function (req, res, next) {
+  console.log(req.query, req.body);
   send(res, 'ok');
 });
 
