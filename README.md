@@ -1,4 +1,5 @@
 # Slack bot
+* https://okdevtv.slack.com test bed
 
 ## 환경 설정하기
 * Set up 5 values
