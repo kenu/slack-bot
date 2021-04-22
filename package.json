@@ -1,9 +1,9 @@
 {
-  "name": "42bot",
+  "name": "slack-bot",
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/jandibot"
+    "start": "node ./bin/slackbot"
   },
   "dependencies": {
     "axios": "^0.21.1",

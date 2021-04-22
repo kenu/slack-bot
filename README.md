@@ -1,14 +1,13 @@
-# Google Sheets with Jandi bot
+# Slack bot
 
 ## 환경 설정하기
 * Set up 5 values
-  * https://okdevtv.com/mib/google/sheets
-  * https://okdevtv.com/mib/jandi
+  * https://okdevtv.com/mib/slack
 
 ## 빌드
 ```
-git clone https://github.com/kenu/jandi-google-bot
-cd jandi-google-bot
+git clone https://github.com/kenu/slack-bot
+cd slack-bot
 npm i
 cp .env.sample .env
 # set up .env values
@@ -16,4 +15,4 @@ npm start
 ```
 
 ## ref
-* https://support.jandi.com/hc/ko/articles/360000252243-잔디-커넥트-아웃고잉-웹훅-Outgoing-Webhook-으로-서비스-연동하기-
+* https://okdevtv.com/mib/slack

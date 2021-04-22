@@ -1,4 +1,3 @@
-const sheetdb = require('../lib/sheetdb');
 const axios = require('axios');
 const NumberUtils = require('../common/NumberUtils');
 const ArrayUtils = require('../common/ArrayUtils');
@@ -6,23 +5,11 @@ const ArrayUtils = require('../common/ArrayUtils');
 const actions = {
   'translate': function (key) {
     const map = {
-      '클러스터': 'cluster',
       '로또': 'lotto',
       '시크릿': 'secret',
       '메뉴': 'menu',
     };
     return (map[key]) ? map[key] : key;
-  },
-  'cluster': async () => {
-    const info = { sheetId: process.env.SHEET_ID, id: process.env.SHEET_GID };
-    const sheet = await sheetdb.getSheet(info);
-    await sheet.loadCells('B2:D4');
-    const sheetUrl = `https://docs.google.com/spreadsheets/d/${process.env.SHEET_ID}/edit#gid=${process.env.SHEET_GID}`
-    const stats =
-      '[[현황 link]](' + sheetUrl + ')'
-      + '\n' + sheet.getCell(2, 1).value + ': ' + sheet.getCell(2, 2).value + '/' + sheet.getCell(2, 3).value
-      + '\n' + sheet.getCell(3, 1).value + ': ' + sheet.getCell(3, 2).value + '/' + sheet.getCell(3, 3).value;
-    return stats;
   },
   'lotto': () => {
     if (Math.random() > .2) {
@@ -42,14 +29,13 @@ const actions = {
     const menu = ArrayUtils.shuffle(menuList);
     return menu.pop();
   },
-  sendToJandi: async function (data) {
+  sendToSlack: async function (data) {
     const config = {
       headers: {
-        'Accept': 'application/vnd.tosslab.jandi-v2+json',
         'Content-Type': 'application/json'
       }
     }
-    return await axios.post(process.env.JANDI_INCOMING_WEBHOOK, data, config);
+    return await axios.post(process.env.SLACK_INCOMING_WEBHOOK, data, config);
   }
 };
 
