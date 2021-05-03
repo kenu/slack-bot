@@ -7,5 +7,12 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <form action="/okdevot" method="POST">
+      <input type="text" name="text" value="" placeholder="type lotto or menu or secret" size="30">
+      <button>get</button>
+      <hr>
+      or copy this command and run in terminal
+      <pre style="background-color: #eee; padding: 8px;">curl -X POST localhost:4002/okdevot -H 'Content-Type: application/json' -d '{"text": "lotto"}'</pre>
+    </form>
   </body>
 </html>
